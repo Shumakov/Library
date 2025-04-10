@@ -6,7 +6,7 @@ class Book {
 public:
 	// Конструктор
 
-	//Book();
+	//Book(); конструктор по умолчанию
 	Book(const std::string& n,
 		const std::string& a,
 		const unsigned int cp);
@@ -15,6 +15,8 @@ public:
 		const std::string& a,
 		const std::string& d,
 		const unsigned int cp);
+
+	~Book() { count--; }
 
 	// Сетторы
 	void setName(const std::string& val);
@@ -31,11 +33,14 @@ public:
 	// Остальные функции
 	void print();
 
+	static unsigned int getCount() { return count; }
+
 private:
 
 	std::string author;
 	std::string name;
 	std::string description;
 	unsigned int page_count = 0;
+	static unsigned int count;
 };
 

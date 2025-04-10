@@ -1,11 +1,13 @@
 #include "Book.h"
 
-void Book::setName(const std::string& val) {
-	name = val;
+unsigned int Book::count = 0;
+
+void Book::setName(const std::string& name) {
+	this->name = name;
 }
 
 void Book::setAuthor(const std::string& val) {
-	author = val;
+	author = val; // this->author = val
 }
 
 void Book::setDescription(const std::string& val) {
@@ -32,7 +34,6 @@ unsigned int Book::getPageCount() {
 }
 
 void Book::print() {
-
 	printf("Книга называется:   %s \n", name.c_str());
 	printf("Автор книги:        %s \n", author.c_str());
 	printf("Краткое описание:   %s \n", description.c_str());
@@ -50,6 +51,7 @@ Book::Book(const std::string& n,
 	author{ a },
 	page_count(cp) {
 	std::cout << "Конструктор номер 1" << std::endl;
+	count++;
 	/*name = n;
 	author = a;
 	page_count = cp;*/
