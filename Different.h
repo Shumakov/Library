@@ -3,6 +3,43 @@
 
 void func1();
 
+class Money {
+
+public:
+
+	Money() = default;
+	Money(int rubl, int cent) :
+		rubl{ rubl },
+		cent{ cent } {}
+
+	void print();
+	friend Money operator+ (const Money& a, const Money& b);
+    friend Money operator- (const Money& a, const Money& b);
+	friend bool operator> (const Money& a, const Money& b);
+	friend bool operator== (const Money& a, const Money& b);
+	friend bool operator!= (const Money& a, const Money& b);
+	friend Money operator* (const Money& a, const int b);
+	friend std::ostream& operator<< (std::ostream& o, const Money& m);
+
+private:
+	int rubl = 0;
+	int cent = 0;
+};
+
+Money operator+ (const Money& a, const Money& b);
+Money operator* (const Money& a, const int b);
+Money operator- (const Money& a, const Money& b);
+
+
+bool operator> (const Money& a, const Money& b);
+bool operator< (const Money& a, const Money& b);
+bool operator== (const Money& a, const Money& b);
+bool operator!= (const Money& a, const Money& b);
+bool operator>= (const Money& a, const Money& b);
+bool operator<= (const Money& a, const Money& b);
+
+std::ostream& operator<< (std::ostream& o, const Money& m);
+
 class Test {
 public:
 
