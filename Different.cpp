@@ -1,8 +1,8 @@
 #include "Different.h"
 
-int Different::a = 100;
+//int Different::a = 100;
 
-void Money::print() {
+void Money::print() const{
 	
 	std::cout << "Деньги " << rubl << " руб. " << cent << " коп. \n";
 
@@ -59,15 +59,20 @@ std::ostream& operator<< (std::ostream& o, const Money& m) {
 }
 
 
-Different::Different() {
-	std::cout << "Конструктор по умолчанию для класса Different\n";
-	t = new Test;
+void Money::plusCent(int c) {
+
+	cent += c;
 }
 
-Different::~Different() {
-	std::cout << "Деструктор для класса Different\n";
-	delete t;
-}
+//Different::Different() {
+//	std::cout << "Конструктор по умолчанию для класса Different\n";
+//	t = new Test;
+//}
+//
+//Different::~Different() {
+//	std::cout << "Деструктор для класса Different\n";
+//	delete t;
+//}
 
 Test::Test() {
 	std::cout << "Конструктор по умолчанию для класса Test\n";
@@ -77,11 +82,16 @@ Test::~Test() {
 	std::cout << "Деструктор для класса Test\n";
 }
 
-
-void Different::print() {
-
-	std::cout << "value = " << value << std::endl;
+std::ostream& operator<< (std::ostream& o, const Test& m) {
+	o << m.i;
+	return o;
 }
+
+
+//void Different::print() {
+//
+//	std::cout << "value = " << value << std::endl;
+//}
 
 
 void func1() {
